@@ -1,59 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"    class="version-d platform-desktop">
+   <head>
+      <meta charset="UTF-8">
+      <title>WhatsApp Group Invite</title>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@whatsapp" />
+      <meta property="og:title" content="groupchat :)"/>
+      <meta property="og:image" content="https://www.cdn.whatsapp.net/img/whatsapp-promo-simple.png"/>
+      <meta property="og:site_name" content="WhatsApp.com"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+      <meta http-equiv="X-UA-Compatible" content="IE=9">
+      <meta name="theme-color" content="#1BA691">
+      <meta name="msapplication-navbutton-color" content="#1BA691">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="#1BA691">
+      <link id="favicon" rel="shortcut icon" href="https://whatsapp.com/favicon.png" type="image/png">
+      <meta name="google-site-verification" content="Cusl-1G4lInGd7xZ55vzhKEF4l3O11umoaqQ-RxTf2w" />
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="manifest" href="manifest.json">
-  <!-- ios support -->
-  <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-128x128.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-384x384.png">
-  <link rel="apple-touch-icon" href="images/icons/icon-512x512.png">
-  <meta name="apple-mobile-web-app-status-bar" content="#db4938">
-  <meta name="theme-color" content="#db4938">
-  <title>MoAn</title>
-</head>
+         ga('create', 'UA-8707243-1', {
+             'cookieName' : 'whatsapp_cookie',
+             'cookieDomain' : 'www.whatsapp.com',
+             'cookieExpires' : 60 * 60 * 24 * 365 * 2
+         });
+         ga('send', 'pageview');
+         // delete old cookies
+         document.cookie = '__utma=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+         document.cookie = '__utmc=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+         document.cookie = '__utmz=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      </script>
+      <link rel="stylesheet" href="https://www-cdn.whatsapp.net/css/v4/style.build.css?v=bec0c07a1">
+      <script type="text/javascript" src="https://www-cdn.whatsapp.net/js/v4/jquery-1.12.2.min.js"></script>
+      <!--Follow this link to join-->
+      <meta property="og:description" content="WhatsApp Group Invite"/>
+      <meta property="og:url" content="https://chat.whatsapp.com"/>
+      <link rel="canonical" href="https://chat.whatsapp.com" />
+      <meta name="robots" content="noindex"/>
+   </head>
+   <body class="page page--landing page--invite" id="top">
+      <div class="header ">
+         <header class="page-header ">
+            <div class="page-header__inner">
+               <a class="page-header__logo" href="https://www.whatsapp.com"></a>
+               <div class="page-header__language">
+                  <div id="lng" onclick="toggle_lng_menu()">
+                     <span class="lng-id" dir="auto">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="lng-dropdown" x="0px" y="0px" width="9px" height="20px" viewBox="0 0 9 20" style="enable-background:new 0 0 9 20;" xml:space="preserve">
+                           <polygon fill="#ffffff" points="1,9 4.5,12.5 8,9 "/>
+                        </svg>
+                        <span class="lng-name">English</span>
+                     </span>
+                  </div>
+                  <div id="lng_open">
+                     <div id="select" onclick="toggle_lng_menu()">
+                        <span class="dropdown">&#9662;</span>
+                        <span class="icon"></span>
+                        Select your language
+                     </div>
+                     <div id="popular">
+                        <li ><a class="lng-link" data-lng="az" href="?l=az" dir="auto">Azərbaycanca</a></li>
+                        <li ><a class="lng-link" data-lng="af" href="?l=af" dir="auto">Afrikaans</a></li>
+                        <li ><a class="lng-link" data-lng="id" href="?l=id" dir="auto">Bahasa Indonesia</a></li>
+                        <li ><a class="lng-link" data-lng="ms" href="?l=ms" dir="auto">Bahasa Melayu</a></li>
+                        <li ><a class="lng-link" data-lng="ca" href="?l=ca" dir="auto">Català</a></li>
+                        <li ><a class="lng-link" data-lng="cs" href="?l=cs" dir="auto">Česky</a></li>
+                        <li ><a class="lng-link" data-lng="da" href="?l=da" dir="auto">Dansk</a></li>
+                        <li ><a class="lng-link" data-lng="de" href="?l=de" dir="auto">Deutsch</a></li>
+                        <li ><a class="lng-link" data-lng="et" href="?l=et" dir="auto">Eesti</a></li>
+                        <li class="active"><a class="lng-link" data-lng="en" href="?l=en" dir="auto">English</a></li>
+                        <li ><a class="lng-link" data-lng="es" href="?l=es" dir="auto">Español</a></li>
+                        <li ><a class="lng-link" data-lng="fr" href="?l=fr" dir="auto">Français</a></li>
+                        <li ><a class="lng-link" data-lng="ga" href="?l=ga" dir="auto">Gaeilge</a></li>
+                        <li ><a class="lng-link" data-lng="hr" href="?l=hr" dir="auto">Hrvatski</a></li>
+                        <li ><a class="lng-link" data-lng="it" href="?l=it" dir="auto">Italiano</a></li>
+                        <li ><a class="lng-link" data-lng="sw" href="?l=sw" dir="auto">Kiswahili</a></li>
+                        <li ><a class="lng-link" data-lng="lv" href="?l=lv" dir="auto">Latviešu</a></li>
+                        <li ><a class="lng-link" data-lng="lt" href="?l=lt" dir="auto">Lietuviškai</a></li>
+                        <li ><a class="lng-link" data-lng="hu" href="?l=hu" dir="auto">Magyar</a></li>
+                        <li ><a class="lng-link" data-lng="nl" href="?l=nl" dir="auto">Nederlands</a></li>
+                        <li ><a class="lng-link" data-lng="nb" href="?l=nb" dir="auto">Norsk</a></li>
+                        <li ><a class="lng-link" data-lng="uz" href="?l=uz" dir="auto">Oʻzbekcha</a></li>
+                        <li ><a class="lng-link" data-lng="fil" href="?l=fil" dir="auto">Pilipino</a></li>
+                        <li ><a class="lng-link" data-lng="pl" href="?l=pl" dir="auto">Polski</a></li>
+                        <li ><a class="lng-link" data-lng="pt_br" href="?l=pt_br" dir="auto">Português (BR)</a></li>
+                        <li ><a class="lng-link" data-lng="pt_pt" href="?l=pt_pt" dir="auto">Português (PT)</a></li>
+                        <li ><a class="lng-link" data-lng="ro" href="?l=ro" dir="auto">Română</a></li>
+                        <li ><a class="lng-link" data-lng="sq" href="?l=sq" dir="auto">Shqip</a></li>
+                        <li ><a class="lng-link" data-lng="sk" href="?l=sk" dir="auto">Slovenčina</a></li>
+                        <li ><a class="lng-link" data-lng="sl" href="?l=sl" dir="auto">Slovenščina</a></li>
+                        <li ><a class="lng-link" data-lng="fi" href="?l=fi" dir="auto">Suomi</a></li>
+                        <li ><a class="lng-link" data-lng="sv" href="?l=sv" dir="auto">Svensk</a></li>
+                        <li ><a class="lng-link" data-lng="vi" href="?l=vi" dir="auto">Tiếng Việt</a></li>
+                        <li ><a class="lng-link" data-lng="tr" href="?l=tr" dir="auto">Türkçe</a></li>
+                        <li ><a class="lng-link" data-lng="el" href="?l=el" dir="auto">Ελληνικά</a></li>
+                        <li ><a class="lng-link" data-lng="bg" href="?l=bg" dir="auto">Български</a></li>
+                        <li ><a class="lng-link" data-lng="kk" href="?l=kk" dir="auto">Қазақша</a></li>
+                        <li ><a class="lng-link" data-lng="mk" href="?l=mk" dir="auto">Македонски</a></li>
+                        <li ><a class="lng-link" data-lng="ru" href="?l=ru" dir="auto">Pусский</a></li>
+                        <li ><a class="lng-link" data-lng="sr" href="?l=sr" dir="auto">Српски</a></li>
+                        <li ><a class="lng-link" data-lng="uk" href="?l=uk" dir="auto">Українська</a></li>
+                        <li ><a class="lng-link" data-lng="he" href="?l=he" dir="auto">‏עברית‏</a></li>
+                        <li ><a class="lng-link" data-lng="ar" href="?l=ar" dir="auto">العربية</a></li>
+                        <li ><a class="lng-link" data-lng="fa" href="?l=fa" dir="auto">فارسی</a></li>
+                        <li ><a class="lng-link" data-lng="ur" href="?l=ur" dir="auto">اردو</a></li>
+                        <li ><a class="lng-link" data-lng="bn" href="?l=bn" dir="auto">বাংলা </a></li>
+                        <li ><a class="lng-link" data-lng="hi" href="?l=hi" dir="auto">हिंदी</a></li>
+                        <li ><a class="lng-link" data-lng="gu" href="?l=gu" dir="auto">ગુજરાતી</a></li>
+                        <li ><a class="lng-link" data-lng="kn" href="?l=kn" dir="auto">ಕನ್ನಡ</a></li>
+                        <li ><a class="lng-link" data-lng="mr" href="?l=mr" dir="auto">मराठी</a></li>
+                        <li ><a class="lng-link" data-lng="ta" href="?l=ta" dir="auto">தமிழ்</a></li>
+                        <li ><a class="lng-link" data-lng="te" href="?l=te" dir="auto">తెలుగు</a></li>
+                        <li ><a class="lng-link" data-lng="ml" href="?l=ml" dir="auto">മലയാളം</a></li>
+                        <li ><a class="lng-link" data-lng="th" href="?l=th" dir="auto">ภาษาไทย</a></li>
+                        <li ><a class="lng-link" data-lng="zh_cn" href="?l=zh_cn" dir="auto">简体中文</a></li>
+                        <li ><a class="lng-link" data-lng="zh_tw" href="?l=zh_tw" dir="auto">繁體中文</a></li>
+                        <li ><a class="lng-link" data-lng="ja" href="?l=ja" dir="auto">日本語</a></li>
+                        <li ><a class="lng-link" data-lng="ko" href="?l=ko" dir="auto">한국어</a></li>
+                        <div class="clear"></div>
+                     </div>
+                     <div id="helptranslate">
+                        <li><a href="https://translate.whatsapp.com" target="_blank">Help translate WhatsApp into your language</a></li>
+                        <div class="clear"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+      </div>
+      <div class="page-main">
+         <div class="page-main__inner">
+            <div class="page-content page-content--single">
+               <div class="block block--invite">
+                  <a href="#" id="action-icon" title="Follow this link to join: groupchat :)" class="block__img img icon-chat">
+                  <span class="img__body" style="background-image: url(https://chat.whatsapp.com/invite/icon/LFQqPND4jU8JVxHvPnBKOC);"></span>
+                  </a>
+                  <h2 class="block__title">groupchat :)</h2>
+                  <h3 class="block__subtitle" dir="auto">WhatsApp Group Invite</h3>
+                  <div class="block__action">
+                     <a href="#" id="action-button" title="Follow this link to join: groupchat :)" class="button button--simple button--primary">Join chat</a>
+                  </div>
+               </div>
+               <hr>
+               <div class="block block--hint">
+                  Don't have WhatsApp yet?<br><a href="https://www.whatsapp.com/download">Download</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <iframe id="launcher" width="0" height="0" style="border: none;"></iframe>
+      <footer class="page-footer-container page-footer--bottom" id="page-footer">
+         <div class="page-footer -primary">
+            <div class="page-footer__inner">
+               <div class="four -spaced">
+                  <div class="block block--footer four__item">
+                     <h4 class="block__title">WhatsApp</h4>
+                     <div class="block__body">
+                        <ul class="list list--footer">
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/features/" class="list__link">
+                              Features                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/security/" class="list__link">
+                              Security                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/download/" class="list__link">
+                              Download                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://web.whatsapp.com/" class="list__link">
+                              WhatsApp Web                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/business/" class="list__link">
+                              Business                                            </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="block block--footer four__item">
+                     <h4 class="block__title">Company</h4>
+                     <div class="block__body">
+                        <ul class="list list--footer">
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/about/" class="list__link">
+                              About                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/join/" class="list__link">
+                              Careers                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsappbrand.com/" class="list__link">
+                              Brand Center                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/contact/" class="list__link">
+                              Get in touch                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://blog.whatsapp.com" class="list__link">
+                              Blog                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <span class="list__empty"></span>
+                           </li>
+                           <li class="list__item">
+                              <span class="list__empty"></span>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="block block--footer four__item">
+                     <h4 class="block__title">Download</h4>
+                     <div class="block__body">
+                        <ul class="list list--footer">
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/download/" class="list__link">
+                              Mac/PC                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/android/" class="list__link">
+                              Android                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/appstore/" class="list__link">
+                              iPhone                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/wp/" class="list__link">
+                              Windows Phone                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.whatsapp.com/nokia/" class="list__link">
+                              Nokia                                            </a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="block block--footer four__item">
+                     <h4 class="block__title">Help</h4>
+                     <div class="block__body">
+                        <ul class="list list--footer">
+                           <li class="list__item">
+                              <a href="https://faq.whatsapp.com/" class="list__link">
+                              FAQ                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://twitter.com/whatsapp" class="list__link">
+                              Twitter                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <a href="https://www.facebook.com/WhatsApp" class="list__link">
+                              Facebook                                            </a>
+                           </li>
+                           <li class="list__item">
+                              <span class="list__empty"></span>
+                           </li>
+                           <li class="list__item">
+                              <span class="list__empty"></span>
+                           </li>
+                           <li class="list__item">
+                              <span class="list__empty"></span>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="page-footer -secondary">
+            <div class="page-footer__inner">
+               <div class="four">
+                  <div class="four__item" dir="auto">
+                     2018 &copy; WhatsApp Inc.
+                  </div>
+                  <div class="four__item -span3">
+                     <a href="https://www.whatsapp.com/legal/" class="page-footer__link">Privacy & Terms</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script>
+         var open = false;
+         var speed = 200;
+         function toggle_lng_menu() {
+             if(open) {
+                 $('#lng_open').slideUp(speed);
+                 $('.header').removeClass('is-expanded');
+             } else {
+                 $('#lng_open').slideDown(speed);
+                 $('.header').addClass('is-expanded');
+             }
+             open = !open;
+         }
 
-<body>
-  <main>
-    <nav>
-      <h1>Mobile Anwendungssysteme: Übung</h1>
-    </nav>
-    </br>
-    <h1>1.Woche</h2>
-      <p>Website über Github</p>
-        <a href="https://edgarmeilinger.github.io/app.html" title="audiovideo">
-      <h1>2.Woche</h1>
-      <a href="https://edgarmeilinger.github.io/auvi.html" title="audiovideo">
-        Audio und Video
-        <h1>3.Woche</h1>
-        <a href="https://edgarmeilinger.github.io/geo.html" title="Bewegung">
-          Bewegung
-        </a>
-        <h1>4.Woche</h1>
-        <a href="https://edgarmeilinger.github.io/opsys.html" title="oberatingsystem">
-          Operating Systems
-        </a>
-        <h1>5.Woche</h1>
-        <a href="https://edgarmeilinger.github.io/natbe.html" title="nativebehaviors">
-          Native Behaviors
-        </a>
-        <h1>6.+7.Woche</h1>
-        <a href="https://edgarmeilinger.github.io/table.html" title="nativebehaviors">
-      Tabelle
-        </a>
-        <div id="target"></div>
-        <div class="container"></div>
-  </main>
-  <script src="js/app.js"></script>
-</body>
+         function toggle_menu() {
+             $('.page-header__drawer').toggleClass('is-visible');
+         }
 
+         function toggle_search() {
+             $('.page-subheader--search').slideToggle();
+         }
+
+         $(function() {
+                 })
+      </script>
+      <script type="text/javascript">(function(e){var t={};function n(r){if(t[r]){return t[r].exports}var o=t[r]={i:r,l:false,exports:{}};e[r].call(o.exports,o,o.exports,n);o.l=true;return o.exports}n.m=e;n.c=t;n.d=function(e,t,r){if(!n.o(e,t)){Object.defineProperty(e,t,{configurable:false,enumerable:true,get:r})}};n.n=function(e){var t=e&&e.__esModule?function t(){return e["default"]}:function t(){return e};n.d(t,"a",t);return t};n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)};n.p="";return n(n.s=0)})([function(e,t,n){"use strict";var r=n(1);var o=i(r);var a=n(2);function i(e){return e&&e.__esModule?e:{default:e}}(0,o.default)(function(){u();var e=document.querySelector("#action-button");e.addEventListener("click",u);e.href=c();var t=document.querySelector("#action-icon");t.addEventListener("click",u);t.href=c()});function u(e){if(e)e.preventDefault();var t="whatsapp://chat?code=LFQqPND4jU8JVxHvPnBKOC";var n="desktop";(0,a.openUrlWithFallback)(t,c(n),n)}function c(e){switch(e){case"desktop":return"https://web.whatsapp.com/accept?code=LFQqPND4jU8JVxHvPnBKOC";break;case"phone":case"tablet":return"https://www.whatsapp.com/download/";break;default:return"https://www.whatsapp.com/download"}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});t.default=r;function r(e){o();if(document.readyState==="complete"||document.readyState==="loaded"||document.readyState==="interactive"){e()}else if(document.addEventListener){var t=function t(){e();document.removeEventListener("DOMContentLoaded",t)};document.addEventListener("DOMContentLoaded",t)}else if(document.attachEvent){var n=function t(){e();document.detachEvent("onreadystatechange",t)};document.attachEvent("onreadystatechange",e)}else{window.onload=e}}function o(){var e=navigator.userAgent;if(e.indexOf("Android")>-1&&e.indexOf("Mozilla/5.0")>-1&&e.indexOf("AppleWebKit")>-1&&e.indexOf("Chrome")>-1){document.querySelector("html").classList.add("browser-chrome-android")}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=function(){function e(e,t){var n=[];var r=true;var o=false;var a=undefined;try{for(var i=e[Symbol.iterator](),u;!(r=(u=i.next()).done);r=true){n.push(u.value);if(t&&n.length===t)break}}catch(e){o=true;a=e}finally{try{if(!r&&i["return"])i["return"]()}finally{if(o)throw a}}return n}return function(t,n){if(Array.isArray(t)){return t}else if(Symbol.iterator in Object(t)){return e(t,n)}else{throw new TypeError("Invalid attempt to destructure non-iterable instance")}}}();t.parseQueryParams=o;t.encodeQueryParams=a;t.openUrlWithFallback=i;function o(e){var t=e.indexOf("?");if(t<0)return;var n=e.slice(t+1);if(!n.length)return;var o={};n.split("&").forEach(function(e){if(e.indexOf("=")<0)return;var t=e.split("="),n=r(t,2),a=n[0],i=n[1];o[decodeURIComponent(a)]=decodeURIComponent(i)});return o}function a(e){var t="";for(var n in e){var r=e[n];var o=t.length===0?"":"&";t+=""+o+encodeURIComponent(n)+"="+encodeURIComponent(r)}return t}function i(e,t,n){if(n==="desktop"){var r=document.querySelector("#launcher");r.src=e}else{window.location=e}if(!t)return;var o=Date.now();var a=window.setTimeout(function(){if(Date.now()-o>1250)return;window.location=t},1e3);window.addEventListener("blur",function(){window.clearTimeout(a)})}}]);</script>
+   </body>
 </html>
