@@ -40,7 +40,7 @@ self.addEventListener("install", installEvent => {
   console.log(installEvent);
   installEvent.waitUntil(
     caches
-      .open(staticDevCoffee)
+      .open(pwachat)
       .then(cache => {
         cache.addAll(assets);
       })
