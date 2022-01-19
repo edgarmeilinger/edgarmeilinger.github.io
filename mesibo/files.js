@@ -55,7 +55,7 @@ MesiboFile.prototype.init = function(){
 
 MesiboFile.prototype.dataURItoBlob = function(dataURI) {
 	// convert base64 to raw binary data held in a string
-	// doesn't handle URLEncoded DataURIs 
+	// doesn't handle URLEncoded DataURIs
 	var byteString = atob(dataURI.split(',')[1]);
 
 	// separate out the mime component
@@ -81,24 +81,24 @@ MesiboFile.prototype.dataURItoBlob = function(dataURI) {
 }
 
 MesiboFile.prototype.getLinkPreviewJson = async function(pUrl,pPreviewEndpoint, pServiceKey){
-	
+
 	if(!isValidString(pUrl))
-		return null; 
-	
+		return null;
+
 	if(!isValidString(pPreviewEndpoint)){
 		MesiboLog("Invalid link preview service");
-        return null; 
+        return null;
 	}
-	
+
 	if(!isValidString(pServiceKey)){
 		MesiboLog("Invalid link preview access key");
-		return null; 
+		return null;
 	}
 
 	//Request to link preview service
     const linkPreviewResponse = await fetch(pPreviewEndpoint+ '?key=' + pServiceKey + '&q=' + pUrl);
-    const linkPreviewJson = await linkPreviewResponse.json(); 
-	
+    const linkPreviewJson = await linkPreviewResponse.json();
+
 	if(!isValidString(linkPreviewJson.title))
 		MesiboLog("Invalid title in linkPreviewJson");
 
@@ -116,16 +116,23 @@ MesiboFile.prototype.getLinkPreviewJson = async function(pUrl,pPreviewEndpoint, 
 	if(isValidString(linkPreviewJson.url))
 		linkPreviewJson.hostname = linkPreviewJson.url.replace('http://','').replace('https://','').split(/[/?#]/)[0];
 
-	
+
 	if(linkPreviewJson.error){
 		//Fatal error
 		MesiboLog("Error in link preview: ", linkPreviewJson.error);
-		return null; 
+		return null;
 	}
-	
+
 	return linkPreviewJson;
 }
 
 
 
-
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

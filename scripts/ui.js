@@ -67,7 +67,7 @@ let getStatusClass = (status) => {
         }
 
         //MESIBO_MSGSTATUS_FAIL is 0x80
-        if(status > 127) 
+        if(status > 127)
             statusTick = "fas fa-exclamation-circle";
 
         return statusTick;
@@ -89,7 +89,7 @@ let getStatusColor = (status) => {
                         statusColor = "grey";
         }
         //MESIBO_MSGSTATUS_FAIL is 0x80
-        if(status > 127) 
+        if(status > 127)
             statusColor = "red";
 
         return statusColor;
@@ -189,15 +189,15 @@ let getScope = () =>{
     return angular.element(document.getElementById('mesibowebapp')).scope();
 }
 
-/** For testing link preview **/ 
+/** For testing link preview **/
 let getSampleLinkPreview = () =>{
     var linkPreview = {};
     linkPreview.title = "Chat API and SDK for Messaging, Voice and Video Call | Android, iOS and Website | mesibo";
     linkPreview.image = "https://mesibo.com/assets/images/mesibo-favicon.png";
-    linkPreview.description = "mesibo is a real-time communication platform, provides chat API and messaging SDK to add messaging, voice and video calls in Android & iOS apps and websites. It is Free to start."; 
+    linkPreview.description = "mesibo is a real-time communication platform, provides chat API and messaging SDK to add messaging, voice and video calls in Android & iOS apps and websites. It is Free to start.";
     linkPreview.hostname = "mesibo.com";
     linkPreview.url = "https://mesibo.com/";
-    
+
     return linkPreview;
 }
 
@@ -208,7 +208,7 @@ let scrollToEnd = (animate) =>{
         return;
 
     // MesiboLog("Scroll to last", objDiv, objDiv.scrollTop);
-    if(animate)        
+    if(animate)
         $("#messages").animate({ scrollTop: objDiv.scrollHeight}, 800);
     else
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -243,7 +243,7 @@ let adjustImageDims = (e)=>{
 
 
 let adjustVideoDims = (e)=>{
-    
+
     // MesiboLog("adjustVideoDims", e);
     if(!e)
         return;
@@ -263,3 +263,11 @@ let adjustVideoDims = (e)=>{
     }
 }
 
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

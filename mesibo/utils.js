@@ -53,7 +53,7 @@ let isValidString = (ele)=>{
         return isValid(ele) && ""!=ele;
 };
 
-// One validation function for all file types    
+// One validation function for all file types
 let isValidFileType = (fName, fType)=> {
     var extensionLists = {}; //Create an object for all extension lists
     extensionLists.video = ['m4v', 'avi', 'mpg', 'mp4', 'webm', 'wmv', 'mov', 'qt', 'mkv', 'flv', 'mpeg', 'm2v', '3gp'];
@@ -70,14 +70,14 @@ let isValid = (ele)=>{
 let isValidImage = (fName) =>{
     if(!fName)
         return false;
-        
+
     return isValidFileType(fName, 'image');
 };
 
 let isValidVideo = (fName) =>{
     if(!fName)
         return false;
-        
+
     return isValidFileType(fName, 'video');
 };
 
@@ -102,5 +102,11 @@ const getUrlInText = (text) => {
         return matches[0];
 }
 
-
-
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

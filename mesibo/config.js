@@ -47,9 +47,9 @@
  *
  * Note, that if you are using logging in with your phone, Mesibo will generate the token.
  * In that case, there is no need to configure token here
- * 
+ *
  */
-var MESIBO_ACCESS_TOKEN = ""; 
+var MESIBO_ACCESS_TOKEN = "";
 
 /* App ID used to create a user token. */
 var MESIBO_APP_ID = "com.mesibo.firstapp";
@@ -81,7 +81,7 @@ const LINK_DEFAULT_IMAGE = "images/file/default-link-icon.jpg"
 /************************ Popup Config Start *****************************/
 
 /* A destination where the popup demo app will send message or make calls */
-const POPUP_DESTINATION_USER = "<dest user>" 
+const POPUP_DESTINATION_USER = "<dest user>"
 
 /************************ Popup Config End *****************************/
 
@@ -112,3 +112,11 @@ function getLoginToken(){
 	return null;
 }
 
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

@@ -46,12 +46,12 @@
  * WebRTC  https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
  * Media Recorder https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder
  *
- * Audio Recording uses code from the Web Dictaphone demo. 
- * Refer to the source code at https://github.com/mdn/web-dictaphone/  
- * 
+ * Audio Recording uses code from the Web Dictaphone demo.
+ * Refer to the source code at https://github.com/mdn/web-dictaphone/
+ *
  * Taking still photos with WebRTC
  * https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
- * 
+ *
  */
 
 function MesiboRecorder(s, type) {
@@ -68,7 +68,7 @@ function MesiboRecorder(s, type) {
 
 	this.canvasCtx = this.canvas.getContext("2d");
 
-	window.rCtx = this; 
+	window.rCtx = this;
 
 	if(type == 'audio')
 		this.audioRecorder();
@@ -100,7 +100,7 @@ MesiboRecorder.prototype.audioRecorder = function(){
 
 MesiboRecorder.prototype.pictureRecorder = function(){
 
-	this.camera.style.display = "block";  
+	this.camera.style.display = "block";
 
 	this.canvas.style.display = "none";
 	this.photo.disabled = false;
@@ -125,17 +125,17 @@ MesiboRecorder.prototype.pictureRecorder = function(){
 
 //main block for doing the video and picture recording
 MesiboRecorder.prototype.initPictureRecording = function(){
-	MesiboLog("initPictureRecording called", this);  
+	MesiboLog("initPictureRecording called", this);
 
 	let rCtx = window.rCtx;
 
 	if(!rCtx.stream){
 		navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-			.then(function(stream) { 
-				rCtx.stream = stream;     
+			.then(function(stream) {
+				rCtx.stream = stream;
 				rCtx.video.srcObject = stream;
 				rCtx.video.play();
-				rCtx.recordMedia(stream, true); //Recording Video	
+				rCtx.recordMedia(stream, true); //Recording Video
 			})
 			.catch(function(err) {
 				console.log("An error occurred: " + err);
@@ -158,7 +158,7 @@ MesiboRecorder.prototype.initPictureRecording = function(){
 	var streaming = false;
 
 	this.video.addEventListener('canplay', function(ev){
-		if (!streaming) {      
+		if (!streaming) {
 
 			// Firefox currently has a bug where the height can't be read from
 			// the video, so we will make assumptions if this happens.
@@ -253,7 +253,7 @@ MesiboRecorder.prototype.initPictureRecording = function(){
 			}
 
 			rCtx.camera.appendChild(buttonContainer);
-			document.getElementById('photo_button').style.display = "none";      
+			document.getElementById('photo_button').style.display = "none";
 
 
 			function resetRecorder(e){
@@ -266,7 +266,7 @@ MesiboRecorder.prototype.initPictureRecording = function(){
 			cancelButton.onclick = function(e) {
 				resetRecorder(e);
 				rCtx.pictureRecorder();
-				rCtx.initPictureRecording();        
+				rCtx.initPictureRecording();
 			}
 
 			sendButton.onclick = function(e) {
@@ -274,7 +274,7 @@ MesiboRecorder.prototype.initPictureRecording = function(){
 				var image = rCtx._blobToFile(blob, "capture-"+ Date.now()+".png", {type: "image/png"})
 				rCtx.sendRecordedFile(image);
 				MesiboLog("close stream", rCtx.stream, rCtx.stream.getTracks());
-				rCtx.scope.closeRecorder(); //TBD: Should we close the recorder when the send button is clicked 
+				rCtx.scope.closeRecorder(); //TBD: Should we close the recorder when the send button is clicked
 			}
 
 
@@ -292,7 +292,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 
 	let chunks = [];
 	let rCtx = this;
-	
+
 	const mediaRecorder = new MediaRecorder(stream);
 
 	rCtx.stream = stream;
@@ -300,7 +300,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 		MesiboLog("Activate audio visuals");
 		rCtx.visualize(stream);
 	}
-	
+
 	rCtx.record.onclick = function() {
 		mediaRecorder.start();
 		console.log(mediaRecorder.state);
@@ -361,7 +361,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 		} else {
 			clipLabel.textContent = clipName;
 		}
-		
+
 		rCtx.canvas.style.display = "none";
 		rCtx.record.style.display = "none";
 		rCtx.stop.style.display = "none";
@@ -369,7 +369,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 		clipContainer.appendChild(media);
 		clipContainer.appendChild(clipLabel);
 		clipContainer.appendChild(sendButton);
-		clipContainer.appendChild(cancelButton);      
+		clipContainer.appendChild(cancelButton);
 
 		while (rCtx.mediaClips.lastElementChild) {
 			rCtx.mediaClips.removeChild(rCtx.mediaClips.lastElementChild);
@@ -380,7 +380,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 		media.controls = true;
 
 		var blob = null;
-		if(video)	
+		if(video)
 			blob = new Blob(chunks, { 'type' : 'video/mp4; codecs=opus' });
 		else
 			blob = new Blob(chunks, { 'type' : 'audio/webm; codecs=opus' });
@@ -407,7 +407,7 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 
 			rCtx.record.style.background = "";
 			rCtx.record.style.color = "";
-			
+
 			if(video){
 				this.photo_button.disabled = false;
 				document.getElementById("buttons").style.display = "block";
@@ -417,13 +417,13 @@ MesiboRecorder.prototype.recordMedia = function(stream, video){
 		}
 
 		cancelButton.onclick = function(e) {
-			resetRecorder(e);        
+			resetRecorder(e);
 		}
 
 		sendButton.onclick = function(e) {
 			rCtx.sendRecordedFile(mediaFile);
 			MesiboLog("close stream", rCtx.stream);
-			rCtx.scope.closeRecorder(); //TBD: Should we close the recorder when the send button is clicked 
+			rCtx.scope.closeRecorder(); //TBD: Should we close the recorder when the send button is clicked
 		}
 
 	}
@@ -448,7 +448,7 @@ MesiboRecorder.prototype.initAudioRecording = function(){
 	const constraints = { audio: true };
 	let chunks = [];
 
-	let rCtx = window.rCtx; 
+	let rCtx = window.rCtx;
 	let onSuccess = function(stream) {
 		rCtx.recordMedia(stream, false); //Audio Recording
 	}
@@ -461,15 +461,15 @@ MesiboRecorder.prototype.initAudioRecording = function(){
 
 }
 
-MesiboRecorder.prototype._blobToFile = function(b, fileName, options){    
+MesiboRecorder.prototype._blobToFile = function(b, fileName, options){
 	var file = new File([b], fileName, options);
-	MesiboLog("_blobToFile, generated file of type", file.type, file.name) 
+	MesiboLog("_blobToFile, generated file of type", file.type, file.name)
 	return file;
 }
 
 MesiboRecorder.prototype._dataURItoBlob = function(dataURI) {
 	// convert base64 to raw binary data held in a string
-	// doesn't handle URLEncoded DataURIs 
+	// doesn't handle URLEncoded DataURIs
 	var byteString = atob(dataURI.split(',')[1]);
 
 	// separate out the mime component
@@ -516,7 +516,7 @@ MesiboRecorder.prototype.visualize = function(stream) {
 	source.connect(analyser);
 	//analyser.connect(audioCtx.destination);
 
-	draw(); 
+	draw();
 
 	function draw() {
 		let rCtx = window.rCtx;
@@ -564,10 +564,17 @@ MesiboRecorder.prototype.close = function(){
 	MesiboLog("MesiboRecorder.close called", this.stream.getTracks(), this.type);
 
 	this.stream.getTracks().forEach(function(track) {
-		MesiboLog('close Track', track); 
-		track.stop();    
+		MesiboLog('close Track', track);
+		track.stop();
 	});
 
 }
 
-
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

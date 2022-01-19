@@ -61,7 +61,7 @@ MesiboCall.prototype.init = function(){
 }
 
 MesiboCall.prototype.videoCall = function() {
-	
+
 	// Setup UI elements for video call
 	this.scope.showVideoCall();
 	this.api.setupVideoCall("localVideo", "remoteVideo", true);
@@ -83,7 +83,7 @@ MesiboCall.prototype.voiceCall = function() {
 }
 
 MesiboCall.prototype.answer = function() {
-	
+
 	//Common modal popup notification for a call. Select the required modal to be displayed
 	if (this.scope.is_video_call)
 		this.video_answer();
@@ -118,3 +118,11 @@ MesiboCall.prototype.voice_hangup = function() {
 	this.api.hangup(0);
 }
 
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}

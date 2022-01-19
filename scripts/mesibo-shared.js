@@ -38,8 +38,8 @@
  *
  *
  */
-/* 
- * workers do not have access to window object. However, mesibo uses window for plenty of call 
+/*
+ * workers do not have access to window object. However, mesibo uses window for plenty of call
  * related apis and hence we need to delegate
  *
  * To debug and view logs, chrome://inspect/#workers
@@ -59,10 +59,10 @@ onconnect = function(event) {
 	ports.push(port);
 	port.start();
 
-	port.addEventListener("message", function(event) { 
-		message_handler(event, port); 
+	port.addEventListener("message", function(event) {
+		message_handler(event, port);
 	} );
-	
+
 
 	// every time a tab connects, send connection status
 	if(mesibo_last_status >= 0) {
@@ -101,7 +101,7 @@ send_mesibo_stop = function(port) {
 
 
 send_mesibo_read_messages = function(port) {
-		// send it to acticve port to read messages 
+		// send it to acticve port to read messages
 		send_to_port(port, "read_messages", null);
 }
 
@@ -119,26 +119,26 @@ message_handler = function (event, port) {
 		/* if the active port is closed, reconnect using another port/tab */
 		if(port == active_port) {
 			mesibo_api_init = true;
-			if(ports.length) {								
+			if(ports.length) {
 				console.log("active port closed. Reconnect using another port/tab", ports[0]);
 				send_mesibo_init(ports[0]);
 			}
 		}
-	
+
 		return;
 	}
 
-	if(op == "start"){		
+	if(op == "start"){
 		send_mesibo_init(port);
 	}
-	
+
 	if(op == "stop"){
-		// send it to active port to stop mesibo 
+		// send it to active port to stop mesibo
 		send_to_port(active_port, null, data);
 	}
 
 	if(op == "private_message") {
-		// send it to acticve port to send message 
+		// send it to acticve port to send message
 		send_to_port(active_port, null, data);
 
 		//TBD. inform all the tabs about new message
@@ -146,7 +146,7 @@ message_handler = function (event, port) {
 	}
 
 	if(op == "sendMessage") {
-		// send it to active port to send message 
+		// send it to active port to send message
 		send_to_port(active_port, null, data);
 
 		// Inform all the tabs about new message
@@ -162,12 +162,12 @@ message_handler = function (event, port) {
 		var p = {};
 		p.m = data.params;
 		p.f = data.file;
-		// send it to acticve port to send file 
+		// send it to acticve port to send file
 		send_to_port(active_port, "sendFile", p);
-		
+
 		var msg = {};
 		msg.m = Object.assign(data.params, data.file);
-		msg.data = ""; 
+		msg.data = "";
 		console.log("inform everyone..", msg);
 		send_to_all("Mesibo_OnMessage", p);
 	}
@@ -202,7 +202,7 @@ message_handler = function (event, port) {
 		console.log("mesibo-shared:", "readMessagesResult", data)
 		send_to_all(null, data);
 	}
-	
+
 	if(op == "syncMessages"){
 		console.log("mesibo-shared:", "syncMessages", data)
 		send_to_port(active_port, null, data);
@@ -226,10 +226,19 @@ message_handler = function (event, port) {
 
 		mesibo_last_status = data.status;
 	}
-	
+
 
 	if(op.startsWith("Mesibo_On")) {
 		send_to_all(null, data);
 	}
 
+}
+
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
 }

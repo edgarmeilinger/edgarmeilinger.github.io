@@ -1,7 +1,7 @@
 $(function() {
 	'use strict';
 
-	
+
 	console.log('login init');
   $('.form-control').on('input', function() {
 	  var $field = $(this).closest('.form-group');
@@ -43,11 +43,11 @@ function login_start() {
 
 	_displayLoginError(null);
 	if(phone[0] == '+'){
-		phone = phone.substr(1); 
+		phone = phone.substr(1);
 	}
 
 	var otp = document.getElementById("otp").value;
-	
+
 	var p = {};
 	p['op'] = 'login';
 	p['appid'] = MESIBO_APP_ID;
@@ -57,7 +57,7 @@ function login_start() {
 		p['otp'] = otp;
 		console.log("gen with otp");
 	}
-		
+
 
 	var http = Mesibo.getInstance().createhttpRequest();
 	http.setUrl(MESSENGER_API_URL);
@@ -70,7 +70,7 @@ function login_start() {
 			_displayLoginError(resp.result);
 			return;
 		}
-	
+
 		document.getElementById('phone').readOnly = true;
 		document.getElementById("otpdiv").style.display = "block";
 		document.getElementById("otp").value = "";
@@ -95,4 +95,11 @@ function _displayLoginError(error) {
 		document.getElementById("errmsg").value = error;
 }
 
-
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(regEvent => console.log("Service worker registered!"))
+      .catch(err => console.log("Service worker not registered"));
+  });
+}
