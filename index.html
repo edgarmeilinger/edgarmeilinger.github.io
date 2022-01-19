@@ -25,16 +25,14 @@
 
       <?php
 
-      <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
+<!-- include firebase database -->
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+
+<script>
+        var firebaseConfig = {
           apiKey: "AIzaSyAfOuE-Rsl3DlhJUbHwRLOUObxZJmfZabc",
           authDomain: "pwa-chat-mit-nfc.firebaseapp.com",
           databaseURL: "https://pwa-chat-mit-nfc-default-rtdb.europe-west1.firebasedatabase.app",
@@ -46,8 +44,7 @@
         };
 
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+   firebase.initializeApp(firebaseConfig);
 
         var myName = prompt("Enter your name");
       </script>
