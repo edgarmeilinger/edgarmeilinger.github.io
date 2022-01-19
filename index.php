@@ -77,7 +77,7 @@ function deleteMessage(self) {
     // delete message
     firebase.database().ref("messages").child(messageId).remove();
 }
- 
+
 // attach listener for delete message
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
     // remove message node
