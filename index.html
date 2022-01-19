@@ -1,103 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>MoAn</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="icon" href="images/icons/icon-128x128.png" />
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="manifest" href="manifest.json" />
 
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://api.mesibo.com/mesibo.js" crossorigin="anonymous"></script> 
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="login/login.css">
+    <script src="mesibo/config.js"></script>
+    <script src="login/login.js"></script>
+
+    <title>mesibo open-source messenger demo</title>
   </head>
-  <body>
-    <main>
-      <nav>
-        <h1>Chat</h1>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Blog</li>
-        </ul>
-      </nav>
+  <body onload="login_init()">
+  
 
-      <?php
+  
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <!-- <div class="col-md-6 order-md-2">
+          <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+        </div> -->
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                  <div class="mb-4">
+                  <h3>Sign In to <strong>messenger demo</strong></h3>
+		  <p class="mb-4">Note: We will NOT send OTP.  You will need to login to your <a href="/cosole">mesibo account</a> to generate OTPs</p>
+                </div>
+                  <div class="form-group first">
+                    <label for="phone">Phone Number with Country Code (For example, +18885551111)</label>
+                    <input type="text" class="form-control" id="phone">
 
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+                  </div>
+                  <div class="form-group last mb-4" id="otpdiv">
+                    <label for="otp">OTP</label>
+                    <input type="password" class="form-control" id="otp">
+                    
+                  </div>
+                  
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="mb-0" style="display: none; color: red;" id="errmsg">Some error
+                    </label>
+                    <span class="ml-auto"><a href="#" onclick="login_init()" class="forgot-pass">Start Again</a></span> 
+                  </div>
 
-<!-- include firebase database -->
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+                  <input type="submit" value="Log In" onclick="login_start()" class="btn btn-pill text-white btn-block btn-primary my-primary">
 
-<script>
-        var firebaseConfig = {
-          apiKey: "AIzaSyAfOuE-Rsl3DlhJUbHwRLOUObxZJmfZabc",
-          authDomain: "pwa-chat-mit-nfc.firebaseapp.com",
-          databaseURL: "https://pwa-chat-mit-nfc-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "pwa-chat-mit-nfc",
-          storageBucket: "pwa-chat-mit-nfc.appspot.com",
-          messagingSenderId: "889020811903",
-          appId: "1:889020811903:web:954a774f9cb75904684d4a",
-          measurementId: "G-HNGHLLYX6H"
-        };
+                  <span class="d-block text-center my-4 text-muted"> You can also download open source mobile apps</span>
+                  
+		  <div class="text-center">
+      
+			  <a href="https://itunes.apple.com/us/app/mesibo-realtime-messaging-voice-video/id1222921751"><img src="https://mesibo.com/images/iphone-app.png" >
+			  </a>
 
-        // Initialize Firebase
-   firebase.initializeApp(firebaseConfig);
+			  <a href="https://play.google.com/store/apps/details?id=com.mesibo.mesiboapplication">
+				<img src="https://mesibo.com/images/android-app.png" >
+			  </a>
+                  
+                  </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
-        var myName = prompt("Enter your name");
-      </script>
-
-      <!-- create a form to send message -->
-      <form onsubmit="return sendMessage();">
-          <input id="message" placeholder="Enter message" autocomplete="off">
-
-          <input type="submit">
-      </form>
-
-      <script>
-          function sendMessage() {
-              // get message
-              var message = document.getElementById("message").value;
-
-              // save in database
-              firebase.database().ref("messages").push().set({
-                  "sender": myName,
-                  "message": message
-              });
-
-              // prevent form from submitting
-              return false;
-          }
-      </script>
-
-      <!-- create a list -->
-      <ul id="messages"></ul>
-
-      <script>
-          // listen for incoming messages
-          firebase.database().ref("messages").on("child_added", function (snapshot) {
-              var html = "";
-              // give each message a unique ID
-              html += "<li id='message-" + snapshot.key + "'>";
-              // show delete button if message is sent by me
-              if (snapshot.val().sender == myName) {
-                  html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
-                      html += "Delete";
-                  html += "</button>";
-              }
-              html += snapshot.val().sender + ": " + snapshot.val().message;
-              html += "</li>";
-
-              document.getElementById("messages").innerHTML += html;
-          });
-      </script>
-
-      ?>
-
-      <div class="container"></div>
-    </main>
-    <script src="js/app.js"></script>
+  
   </body>
 </html>
