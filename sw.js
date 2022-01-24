@@ -25,6 +25,7 @@ const assets = [
   "/scripts/controller.js",
   "/scripts/mesibo-shared.js",
   "/scripts/mesibo-worker.js",
+  "/scripts/nfc.js,"
   "/scripts/ui.js",
   "/styles/messenger.css",
   "/styles/popup.css",
@@ -33,7 +34,8 @@ const assets = [
   "/index.html",
   "/messenger.html",
   "/multitab-popup.html",
-  "/popup.html"
+  "/nfc.html",
+  "/popup.html"  
   ];
 
 self.addEventListener("install", installEvent => {

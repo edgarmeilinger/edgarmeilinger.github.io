@@ -15,7 +15,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
         <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-	<script type="text/javascript" src="https://api.mesibo.com/mesibo.js" crossorigin="anonymous"></script> 
+	<script type="text/javascript" src="https://api.mesibo.com/mesibo.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="mesibo/config.js"></script>
         <script type="text/javascript" src="scripts/controller.js"></script>
         <script type="text/javascript" src="scripts/ui.js"></script>
@@ -55,7 +55,7 @@
 
 
                         <!-- Chat List = Left Side -->
-                        <span ng-show="!(getSummary().length)" style="text-align: center"> <i style="color: grey">You have no messages </i></span>  
+                        <span ng-show="!(getSummary().length)" style="text-align: center"> <i style="color: grey">You have no messages </i></span>
                         <div ng-repeat="u in getSummary()" class="row" id="chat-list" style="overflow-y:auto;" >
                             <!-- ng-style="{'background-color': 'hsl(0, 0%, 90%)' -->
                             <div class="chat-list-item d-flex flex-row w-100 p-2 border-bottom" ng-click="generateMessageArea(getProfileFromMessage(u));" tabindex="0">
@@ -85,13 +85,14 @@
                             <div class="row d-flex flex-row align-items-center p-2 pr-5 m-0" style="background:#00868b; min-height:72px;">
                                 <i class="fas fa-arrow-left p-2 mx-2 my-1 text-white" style="cursor: pointer; align-self: left;" ng-click="hideAvailableUsers()"></i>
                                 <div class="text-white font-weight-bold">Select a Contact to Chat</div>
+                                <a href="nfc.html"><img src="images/nfc-icon-31.png"></a>
 				<div class="ml-auto">
                                 <i class="fa fa-user-plus" aria-hidden="true" style="color: white; cursor:pointer; float: right; margin-left: 50%;" title="Add Contact" ng-click="showContactForm()"></i>
 				</div>
                             </div>
                             <div class="d-flex flex-column" style="overflow-x: hidden;">
                                 <div class="row" id="available-userlist" style=" background:white;">
-                                    <span ng-show="!hasContacts()" style="text-align: center"> <i style="color: grey; padding-left: 70px; margin-top: 10px;">You have no existing contacts</i></span>  
+                                    <span ng-show="!hasContacts()" style="text-align: center"> <i style="color: grey; padding-left: 70px; margin-top: 10px;">You have no existing contacts</i></span>
                                     <div ng-repeat="u in getContacts() track by $index" class="chat-list-item d-flex flex-row w-100 p-2 border-bottom " style="margin-left: 15px" ng-click="hideAvailableUsers(); generateMessageArea(u);">
                                         <img ng-src='{{getUserPicture(u)}}' class="img-fluid rounded-circle mr-2" style="height:50px;" onerror="imgError(this)">
                                         <div class="w-50">
@@ -127,11 +128,11 @@
 				<button type="button" class="btn btn-outline-danger flex-grow-1 px-3 py-2" ng-click="BlockUser(display_profile)">{{isBlocked(display_profile)?"Unblock":"Block"}} User</button>
 				</div>
                               </div>
-                                                      
+
                               <span ng-if="membersList.length" class="px-2" style="color: grey">{{membersList.length}} Members</span>
                               <div class="d-flex flex-column" style="overflow-x: hidden;" ng-show="membersList.length">
 
-                                <div class="row" id="group-members" style=" background:white;">                                   
+                                <div class="row" id="group-members" style=" background:white;">
                                     <div ng-repeat="u in membersList" class="chat-list-item d-flex flex-row w-100 p-2 border-bottom " style="margin-left: 15px" >
                                         <img ng-src="{{getUserPicture(u['member'])}}" class="img-fluid rounded-circle mr-2" style="height:50px;" onerror="imgError(this)" ng-click="showProfile(u['member'])">
                                         <div class="w-50" ng-click="onMemberClick(u['member']);">
@@ -153,7 +154,7 @@
                             </div>
                             <div class="d-flex flex-column" style="overflow-x: hidden;">
                                 <div class="row" id="available-userlist" style=" background:white;">
-                                    <span ng-show="hasContacts()" style="text-align: center"> <i style="color: grey; padding-left: 70px; margin-top: 10px;">You have no existing contacts</i></span>  
+                                    <span ng-show="hasContacts()" style="text-align: center"> <i style="color: grey; padding-left: 70px; margin-top: 10px;">You have no existing contacts</i></span>
                                     <div ng-repeat="u in getContacts() track by $index" class="chat-list-item d-flex flex-row w-100 p-2 border-bottom " style="margin-left: 15px" ng-click="forwardMessageTo(u); hideForwardList()">
                                         <img ng-src='{{getUserPicture(u)}}' class="img-fluid rounded-circle mr-2" style="height:50px;" onerror="imgError(this)">
                                         <div class="w-50">
@@ -177,7 +178,7 @@
                             <a href="#"><img ng-src='{{getUserPicture(selected_user)}}' ng-click="showProfile(selected_user)" class="img-fluid rounded-circle mr-2" style="height:50px;" id="pic" onerror="imgError(this)" ></a>
                             <div class="d-flex flex-column" ng-click="showProfile(selected_user)">
                                 <div class="text-white font-weight-bold" id="name">{{getUserName(selected_user)}}</div>
-                                <div class="text-white small" id="details" style="cursor: default;" ng-show="getUserActivity(selected_user)">{{ getUserActivity(selected_user)}}</div> 
+                                <div class="text-white small" id="details" style="cursor: default;" ng-show="getUserActivity(selected_user)">{{ getUserActivity(selected_user)}}</div>
                             </div>
                             <div class="d-flex flex-row align-items-center ml-auto" ng-hide="isBlocked(selected_user)">
                                 <a href="#"><i ng-show="selected_user.getGroupId()==0" id="video-button" class="fas fa-video mx-2 text-white" ng-click="makeVideoCall()"></i></a>
@@ -193,7 +194,7 @@
                         <!-- Messages -->
                         <div class="message-list" id="messages" style="overflow: auto;">
                             <img ng-show="!(selected_user.getAddress() || selected_user.getGroupId() || summarySession && summarySession.getMessages().length)" style="position: fixed; z-index: 100; width: 100px; left: 62%; top: 40%;" src="images/paper-plane.png"></img>
-                            <button ng-show="!(selected_user.getAddress() || selected_user.getGroupId() || summarySession && summarySession.getMessages().length)" ng-click="showAvailableUsers()" type="button" class="btn btn-info" style="background-color: #00868b; position: fixed;z-index: 100; left: 58%;top:60%;">Open a new chat &nbsp;  
+                            <button ng-show="!(selected_user.getAddress() || selected_user.getGroupId() || summarySession && summarySession.getMessages().length)" ng-click="showAvailableUsers()" type="button" class="btn btn-info" style="background-color: #00868b; position: fixed;z-index: 100; left: 58%;top:60%;">Open a new chat &nbsp;
                             <i class="fa fa-plus text-white" aria-hidden="true" ng-click="showAvailableUsers()" style="cursor:pointer; float: right; padding-left: 2px; font-size: 10px; padding-top: 5px;" title = "New Chat"></i>
                             <i class="fas fa-comment-alt text-white" aria-hidden="true" ng-click="showAvailableUsers()" style="cursor:pointer; float: right;padding-top: 5px;" title="New Chat"></i>
                             </button>
@@ -207,7 +208,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" style="cursor: pointer;" ng-click="showForwardList(m)">Forward</a>
                                         <a class="dropdown-item" style="cursor: pointer;" ng-click="deleteSelectedMessage(m)">Delete</a>
-                                        <a class="dropdown-item" style="cursor: pointer;" ng-show="isFailedMessage(m)" ng-click="resendSelectedMessage(m)">Resend</a> 
+                                        <a class="dropdown-item" style="cursor: pointer;" ng-show="isFailedMessage(m)" ng-click="resendSelectedMessage(m)">Resend</a>
                                     </div>
                                 </div>
                                 <!-- Link Preview Start -->
@@ -242,7 +243,7 @@
                                             <audio controls="controls" ng-src= "{{m.fileurl}}" style="cursor:pointer; object-fit: cover; width: 250px;"/>
                                         </div>
                                         <div ng-show='isOtherMsg(m)' class= "image-holder"><i class="fas fa-file" style="font-size: 30px;"></i><span style="font-size: 15px; padding-left: 5px; text-overflow: ellipsis; max-width: 100px; color: grey;text-decoration: none;">{{getFileName(m)}}</span>
-                                        </div>                                    
+                                        </div>
                                     </a>
                                 </div>
                                 <!-- File Preview End -->
@@ -289,7 +290,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Login Modal Start-->
                 <div id="ModalLoginForm" class="modal fade">
                     <div class="modal-dialog" role="document">
@@ -301,16 +302,16 @@
                                 <form role="form" method="POST" action="">
                                     <input type="hidden" name="_token" value="">
                                     <div class="form-group">
-                                        <label class="control-label">Phone</label>                                                                             
+                                        <label class="control-label">Phone</label>
                                         <span style="color: grey; font-size: 12px;">
                                           <br>
-                                          Enter phone number starting with country code (Example +91XXXXXXXXXX) to login with an OTP (Use 123456)                                         
+                                          Enter phone number starting with country code (Example +91XXXXXXXXXX) to login with an OTP (Use 123456)
                                         </span>
                                         <div>
                                             <input type="phone" class="form-control input-lg" id="phone" name="phone" value="">
                                         </div>
                                         <span style="color: grey; font-size: 12px;">
-                                          You can also login by <a href="https://mesibo.com/documentation/tutorials/get-started/first-app/#create-users-endpoints"> creating a user in the console or using backend API</a> and setting the token in <strong>config.js</strong> 
+                                          You can also login by <a href="https://mesibo.com/documentation/tutorials/get-started/first-app/#create-users-endpoints"> creating a user in the console or using backend API</a> and setting the token in <strong>config.js</strong>
                                         </span>
                                     </div>
                                     <div class="form-group" id="otp-input">
@@ -351,9 +352,9 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="">                                    
+                                <form role="form" method="POST" action="">
                                     <div class="form-group">
-                                        <label class="control-label">Name</label>                                        
+                                        <label class="control-label">Name</label>
                                         <div>
                                             <input ng-model="new_contact_name" type="name" class="form-control input-lg" id="contact-name" value="">
                                         </div>
@@ -365,7 +366,7 @@
                                           Enter the phone number of the contact, starting with country code (Example +1XXXXXXXXXX).
                                           <br>
                                           Otherwise, you can <a href="https://mesibo.com/documentation/tutorials/get-started/first-app/#create-users-endpoints">create a user in the console or using backend API </a> and add it as a contact, by entering the user's address (Example 123)
-                                          <br>                                          
+                                          <br>
                                         </span>
 
                                         <div>
@@ -398,15 +399,15 @@
                               <button type="button" class="close" data-dismiss="modal" ng-click="closePromptAddContact()">×</button>
                           </div>
                           <div class="modal-body">
-                              <form role="form" action="" class="ng-pristine ng-valid">                          
+                              <form role="form" action="" class="ng-pristine ng-valid">
                                   <div class="form-group">
                                       <div style="text-align: center;">
                                           <button type="button" class="btn btn-success" ng-click="addContact()">Add Contact</button>
                                           <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closePromptAddContact()">Cancel</button>
                                       </div>
-                                      
+
                                   </div>
-                              </form>            
+                              </form>
                           </div>
                       </div>
                   </div>
@@ -506,12 +507,12 @@
                             </div>
                             <div class="modal-body" id="fileBody">
                                 <div  id="preview_container" style="text-align: center;">
-                                        <img id ='image-preview' 
+                                        <img id ='image-preview'
                                         style="display: none; object-fit: scale-down; max-height: 240px; max-width: 320px;" src="">
                                         <video id ='video-preview' controls="controls" preload="true" style="display: none; object-fit: scale-down; max-height: 240px; max-width: 320px;"></video>
                                     <!-- Image/video/Docs custom holder elements -->
                                 </div>
-                                <div class="justify-self-end align-items-center flex-row d-flex" id="file-preview-footer" style="width: 100%; text-align: center;">                               
+                                <div class="justify-self-end align-items-center flex-row d-flex" id="file-preview-footer" style="width: 100%; text-align: center;">
                                     <input ng-model="input_file_caption" type="text" name="caption" id="file-caption" placeholder="Add caption" class="flex-grow-1 border-0 px-3 py-2 my-3 rounded shadow-sm">
                                     <i class="fas fa-paper-plane text-muted px-3" style="cursor:pointer;" ng-click="closeFilePreview();sendFile()"></i>
                                 </div>
@@ -539,8 +540,8 @@
                                             <video id="capture-video">Video stream not available.</video>
                                             <img style="display: none;" id="captured-photo" alt="The screen capture will appear in this box.">
                                             <br>
-                                            <button id="photo_button" class="btn btn-success"> 
-                                            <i class="fas fa-camera"></i> &nbsp; Take Photo 
+                                            <button id="photo_button" class="btn btn-success">
+                                            <i class="fas fa-camera"></i> &nbsp; Take Photo
                                             </button>
                                         </div>
                                         <div id="buttons" style="text-align: center;">
@@ -562,12 +563,12 @@
                 <!--=============== Recorder modal End===============-->
             </div>
         </div>
-        </div>      
-        <script type="text/javascript"> 
+        </div>
+        <script type="text/javascript">
             	  function launchMessenger(){
-                   angular.element(document.getElementById('mesibowebapp')).scope().initMesibo('messenger'); 
+                   angular.element(document.getElementById('mesibowebapp')).scope().initMesibo('messenger');
                   }
-            
+
                   $(document).ready(function(){
 			  console.log("doc ready");
                        //launchMessenger();
@@ -578,8 +579,8 @@
                        launchMessenger();
 
 		}
-            
-                  
-        </script> 
+
+
+        </script>
     </body>
 </html>
