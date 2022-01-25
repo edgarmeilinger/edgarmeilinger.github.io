@@ -35,7 +35,7 @@ const assets = [
   "/messenger.html",
   "/multitab-popup.html",
   "/nfc.html",
-  "/popup.html"  
+  "/popup.html"
   ];
 
 self.addEventListener("install", installEvent => {
