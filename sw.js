@@ -1,4 +1,4 @@
-const staticPWAChat = "pwachat-v1";
+const staticpwachat = "pwachat-v1";
 const assets = [
   "/",
   "/fonts/icomoon/demo-files/demo.js",

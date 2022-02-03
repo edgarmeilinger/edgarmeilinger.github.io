@@ -1,6 +1,6 @@
 {
   "name": "PWA Chat",
-  "short_name": "PWAChat",
+  "short_name": "pwachat",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#fdfdfd",
