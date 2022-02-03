@@ -1,4 +1,4 @@
-const pwachat = "pwachat-v1";
+const staticPWAChat = "pwachat-v1";
 const assets = [
   "/",
   "/fonts/icomoon/demo-files/demo.js",
@@ -11,6 +11,7 @@ const assets = [
   "/images/file/default-link-icon.jpg",
   "/images/profile/default-group-icon.jpg",
   "/images/profile/default-profile-icon.jpg",
+  "/images/nfc-icon-31.png",
   "/images/blank-white.jpg",
   "/images/mesibo-bg-white.png",
   "/images/mesibo-logo.png",
@@ -28,6 +29,7 @@ const assets = [
   "/scripts/nfc.js,"
   "/scripts/ui.js",
   "/styles/messenger.css",
+  "/styles/nfc.css",
   "/styles/popup.css",
   "/styles/popupdesign.css",
   "/demos.html",
